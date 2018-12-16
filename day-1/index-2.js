@@ -10,6 +10,7 @@ let calculateFrequency = () => {
   for (const [index, line] of input.entries()) {
     currentFrequency = currentFrequency + parseInt(line)
     if (pastFrequency.hasOwnProperty(currentFrequency)) {
+      console.log(currentFrequency);
       break;
     } else {
       pastFrequency[currentFrequency] = '1';
