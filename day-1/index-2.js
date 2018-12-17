@@ -1,24 +1,27 @@
-let fs = require('fs');
+const fs = require("fs");
 
-let input = fs.readFileSync('./input.txt').toString().split("\n");
+const input = fs
+  .readFileSync("./input.txt")
+  .toString()
+  .split("\n");
 let currentFrequency = 0;
-let pastFrequency = {
-  '0' : 1
+const pastFrequency = {
+  "0": 1
 };
 
-let calculateFrequency = () => {
-  for (const [index, line] of input.entries()) {
-    currentFrequency = currentFrequency + parseInt(line)
+const calculateFrequency = () => {
+  for (const [index, line] of input.entries()) {
+    currentFrequency = currentFrequency + parseInt(line);
     if (pastFrequency.hasOwnProperty(currentFrequency)) {
       console.log(currentFrequency);
       break;
     } else {
-      pastFrequency[currentFrequency] = '1';
+      pastFrequency[currentFrequency] = "1";
     }
     if (index === input.length - 1) {
-      calculateFrequency(); 
+      calculateFrequency();
     }
   }
-}
+};
 
 calculateFrequency();
